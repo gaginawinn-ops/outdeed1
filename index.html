@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Outdeed Sri Lanka - Premium Indeed-Style Job Board Platform</title>
+    
+    <!-- Tailwind CSS Script CDN Architecture Framework -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    
+    <!-- Embedded Embedded Modular Style CSS Architecture Rules -->
+    <style>
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .modal-active {
+            display: flex !important;
+            animation: fadeIn 0.2s ease-out forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.98); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        select {
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234a5568' stroke-width='2'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 0.75rem center;
+            background-size: 1.25em;
+            padding-right: 2.5rem;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 selection:bg-blue-500 selection:text-white">
+
+    <!-- PLATFORM HEADER NAVIGATION COMPONENT -->
+    <nav class="bg-white border-b border-gray-200 sticky top-0 z-40 px-6 py-4 flex justify-between items-center shadow-xs">
+        <div class="flex items-center gap-8">
+            <a href="#" class="text-2xl font-black text-blue-600 tracking-tight">Outdeed<span class="text-orange-500">.lk</span></a>
+            <div class="hidden md:flex gap-6 font-semibold text-gray-500">
+                <a href="#" class="text-blue-600 border-b-2 border-blue-600 pb-1">Find Jobs</a>
+                <a href="#" class="hover:text-blue-600 transition">Company Reviews</a>
+                <a href="#" class="hover:text-blue-600 transition">Salary Estimator</a>
+            </div>
+        </div>
+        <div class="flex items-center gap-4">
+            <button id="nav-login-btn" class="px-4 py-2 text-blue-600 font-bold hover:bg-blue-50 rounded-xl transition">Sign In</button>
+            <button id="nav-post-btn" class="px-5 py-2.5 bg-blue-600 text-white font-bold rounded-xl shadow-xs hover:bg-blue-700 hover:shadow-md transition">Post a Job</button>
+        </div>
+    </nav>
+
+    <!-- CORE SEARCH HERO COMPONENT AREA -->
+    <header class="bg-gradient-to-b from-blue-50/60 to-white py-16 px-6 border-b border-gray-100">
+        <div class="max-w-5xl mx-auto text-center">
+            <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1.5 rounded-full font-bold uppercase tracking-wider">Sri Lanka Job Portal</span>
+            <h1 class="text-4xl md:text-5xl font-black text-gray-900 tracking-tight mt-4 mb-3">Find your next dream career path</h1>
+            <p class="text-gray-600 text-lg mb-10 max-w-2xl mx-auto">Explore premium interactive job postings across all 25 districts with direct WhatsApp updates and real-time verification processing loops.</p>
+            
+            <!-- ADVANCED INDEED-STYLE INTEGRATED SEARCH BAR CONTAINER -->
+            <div class="bg-white p-3 rounded-2xl shadow-xl border border-gray-200 flex flex-col md:flex-row gap-3 max-w-4xl mx-auto">
+                <div class="flex-1 flex items-center gap-3 px-3 border-b md:border-b-0 md:border-r border-gray-200 py-2">
+                    <span class="text-gray-400 text-lg">🔍</span>
+                    <input type="text" id="search-title" placeholder="Job title, keywords, or company name" class="w-full bg-transparent focus:outline-none text-gray-900 font-medium placeholder:text-gray-400">
+                </div>
+                
+                <!-- FULL COMPREHENSIVE SRI LANKAN DISTRICTS AND CITIES INGESTION BLOCK -->
+                <div class="flex-1 flex items-center gap-3 px-3 py-2">
+                    <span class="text-gray-400 text-lg">📍</span>
+                    <select id="search-location" class="w-full bg-transparent focus:outline-none text-gray-900 font-semibold cursor-pointer">
+                        <option value="">All of Sri Lanka (25 Districts)</option>
+                        <optgroup label="Western Province">
+                            <option value="colombo">Colombo (Colombo, Dehiwala, Nugegoda, Malabe)</option>
+                            <option value="gampaha">Gampaha (Negombo, Kelaniya, Kadawatha)</option>
+                            <option value="kalutara">Kalutara (Panadura, Horana, Kalutara)</option>
+                        </optgroup>
+                        <optgroup label="Central Province">
+                            <option value="kandy">Kandy (Peradeniya, Katugastota, Gampola)</option>
+                            <option value="matale">Matale</option>
+                            <option value="nuwara-eliya">Nuwara Eliya</option>
+                        </optgroup>
+                        <optgroup label="Southern Province">
+                            <option value="galle">Galle (Hikkaduwa, Karapitiya, Galle)</option>
+                            <option value="matara">Matara</option>
+                            <option value="hambantota">Hambantota</option>
+                        </optgroup>
+                        <optgroup label="North Western Province">
+                            <option value="kurunegala">Kurunegala</option>
+                            <option value="puttalam">Puttalam (Chilaw, Marawila)</option>
+                        </optgroup>
+                        <optgroup label="Northern Province">
+                            <option value="jaffna">Jaffna</option>
+                            <option value="mannar">Mannar</option>
+                            <option value="vavuniya">Vavuniya</option>
+                            <option value="mullaitivu">Mullaitivu</option>
+                            <option value="kilinochchi">Kilinochchi</option>
+                        </optgroup>
+                        <optgroup label="Eastern Province">
+                            <option value="trincomalee">Trincomalee</option>
+                            <option value="batticaloa">Batticaloa</option>
+                            <option value="ampara">Ampara</option>
+                        </optgroup>
+                        <optgroup label="Sabaragamuwa Province">
+                            <option value="ratnapura">Ratnapura</option>
+                            <option value="kegalle">Kegalle</option>
+                        </optgroup>
+                        <optgroup label="Uva Province">
+                            <option value="badulla">Badulla</option>
+                            <option value="monaragala">Monaragala</option>
+                        </optgroup>
+                        <optgroup label="North Central Province">
+                            <option value="anuradhapura">Anuradhapura</option>
+                            <option value="polonnaruwa">Polonnaruwa</option>
+                        </optgroup>
+                    </select>
+                </div>
+                <button id="search-btn" class="bg-blue-600 text-white font-bold px-8 py-3.5 rounded-xl hover:bg-blue-700 transition shadow-sm">Find Jobs</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- DYNAMIC CORE CORE DATA RUNTIME CONTAINER VIEW -->
+    <main class="max-w-6xl mx-auto px-6 py-12 grid grid-cols-1 lg:grid-cols-3 gap-8">
+        
+        <!-- SIDEBAR PARAMETERS INTERACTIVE LOGIC INTERFACE -->
+        <div class="space-y-6">
+            <!-- JOB TYPE FILTERS MATRIX -->
+            <div class="bg-white p-6 rounded-2xl border border-gray-200 shadow-xs">
+                <h3 class="font-bold text-gray-900 mb-4 text-base uppercase tracking-wider">Job Classification</h3>
+                <div class="space-y-3">
+                    <label class="flex items-center gap-3 cursor-pointer"><input type="checkbox" name="job-type" value="full-time" class="w-5 h-5 rounded border-gray-300 text-blue-600 focus:ring-blue-500"> <span class="font-semibold text-gray-700">Full-Time Job</span></label>
+                    <label class="flex items-center gap-3 cursor-pointer"><input type="checkbox" name="job-type" value="part-time" class="w-5 h-5 rounded border-gray-300 text-blue-600 focus:ring-blue-500"> <span class="font-semibold text-gray-700">Part-Time Vacancy</span></label>
+                    <label class="flex items-center gap-3 cursor-pointer"><input type="checkbox" name="job-type" value="remote" class="w-5 h-5 rounded border-gray-300 text-blue-600 focus:ring-blue-500"> <span class="font-semibold text-gray-700">Remote / WFH Option</span></label>
+                    <label class="flex items-center gap-3 cursor-pointer"><input type="checkbox" name="job-type" value="contract" class="w-5 h-5 rounded border-gray-300 text-blue-600 focus:ring-blue-500"> <span class="font-semibold text-gray-700">Contractual Basis</span></label>
+                </div>
+            </div>
+
+            <!-- INTEGRATED MINIMUM COMPENSATION SALARY SCALING MATRIX -->
+            <div class="bg-white p-6 rounded-2xl border border-gray-200 shadow-xs">
+                <h3 class="font-bold text-gray-900 mb-4 text-base uppercase tracking-wider">Minimum Expected Salary</h3>
+                <div class="relative">
+                    <select id="filter-salary" class="w-full bg-white border border-gray-200 rounded-xl p-3.5 focus:outline-none focus:border-blue-500 text-gray-900 font-semibold cursor-pointer">
+                        <option value="0">Show All Compensations</option>
+                        <option value="40000">LKR 40,000 + per month</option>
+                        <option value="60000">LKR 60,000 + per month</option>
+                        <option value="100000">LKR 100,000 + per month</option>
+                        <option value="150000">LKR 150,000 + per month</option>
+                        <option value="250000">LKR 250,000 + per month</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- TWO FACTOR AUTHENTIC INTERACTION TRIGGERS FOR WHATSAPP MESSAGING RUNTIME -->
+            <div class="bg-linear-to-br from-emerald-600 to-teal-700 p-6 rounded-2xl text-white shadow-lg relative overflow-hidden">
+                <div class="absolute -right-8 -bottom-8 text-white/10 text-9xl font-bold font-serif select-none pointer-events-none">WA</div>
+                <h3 class="font-extrabold text-xl mb-2 flex items-center gap-2"><span>💬</span> WhatsApp Alerts</h3>
+                <p class="text-emerald-100 text-sm mb-5 leading-relaxed">Authorize your device parameter string profile to drop active instant application reviews, job changes, and interview requests via programmatic 2FA notification schemas.</p>
+                <button id="activate-whatsapp-trigger" class="w-full bg-white text-emerald-700 font-bold py-3 rounded-xl hover:bg-emerald-50 transition shadow-xs cursor-pointer">Configure Smart Alerts</button>
+            </div>
+        </div>
+
+        <!-- RIGHT GRID SUB CONTAINER AREA LISTINGS CONTAINER PANEL -->
+        <div class="lg:col-span-2 space-y-4">
+            <div class="flex justify-between items-center mb-1">
+                <h2 class="text-xl font-bold text-gray-900" id="feed-title">Latest Available System Vacancies</h2>
+                <span class="text-sm text-gray-500 font-semibold" id="job-counter-string">Showing 5 active matches</span>
+            </div>
+            
+            <!-- CORE RENDERING PIPELINE PLACEHOLDER TARGET -->
+            <div id="job-feed-container" class="space-y-4">
+                <!-- Programmatic UI DOM nodes get rendering payload structures directly injected via state engine arrays -->
+            </div>
+        </div>
+    </main>
+
+    <!-- COMPLEX MULTI-FLOW SYSTEM IDENTITY LOGGING COMPONENT MODAL -->
+    <div id="identity-auth-modal" class="hidden fixed inset-0 bg-black/60 items-center justify-center p-4 z-50 backdrop-blur-xs transition duration-300">
+        <div class="bg-white w-full max-w-md rounded-2xl p-8 shadow-2xl relative border border-gray-100 transform transition">
+            <button id="close-identity-modal" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-2xl font-bold cursor-pointer">&times;</button>
+            
+            <!-- COMPONENT PARAMETER ROUTING SELECTION PANEL NAVIGATION METRICS -->
+            <div class="flex border-b border-gray-100 mb-6 font-bold text-sm uppercase tracking-wider">
+                <button id="auth-tab-creds" class="flex-1 pb-3 text-center text-blue-600 border-b-2 border-blue-600 cursor-pointer">Identity Sign In</button>
+                <button id="auth-tab-whatsapp" class="flex-1 pb-3 text-center text-gray-400 hover:text-gray-600 cursor-pointer">WhatsApp 2FA</button>
+            </div>
+
+            <!-- MODULE ARCHITECTURE VIEW 1: IDENTITY HANDSHAKE ENGINE PROVIDERS -->
+            <div id="view-auth-credentials" class="space-y-4">
+                <button id="btn-fed-google" class="w-full flex items-center justify-center gap-3 border border-gray-200 py-3 rounded-xl font-bold hover:bg-gray-50 transition text-gray-700 shadow-2xs cursor-pointer">
+                    <svg class="w-5 h-5" viewBox="0 0 24 24"><path fill="#EA4335" d="M12.24 10.285V14.4h6.887c-.648 2.41-2.519 4.113-5.136 4.113A5.73 5.73 0 0 1 8.2 12.8a5.73 5.73 0 0 1 5.79-5.714c1.456 0 2.743.5 3.77 1.326l3.223-3.223C18.99 3.326 15.868 2 13.99 2 8.47 2 4 6.47 4 12s4.47 10 9.99 10c6.14 0 9.47-4.36 9.47-9.43 0-.64-.07-1.125-.22-1.285H12.24z"/></svg>
+                    Continue with Google
+                </button>
+                <button id="btn-fed-apple" class="w-full flex items-center justify-center gap-3 bg-black text-white py-3 rounded-xl font-bold hover:bg-zinc-900 transition shadow-xs cursor-pointer">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.21.67-2.93 1.49-.62.69-1.16 1.84-1.01 2.96 1.12.09 2.27-.58 2.95-1.39z"/></svg>
+                    Continue with Apple ID
+                </button>
+
+                <div class="flex items-center my-4">
+                    <div class="flex-grow border-t border-gray-200"></div>
+                    <span class="mx-3 text-xs text-gray-400 font-bold uppercase tracking-widest">Or Secure Email Link</span>
+                    <div class="flex-grow border-t border-gray-200"></div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-extrabold uppercase text-gray-500 mb-1 tracking-wide">Account Email Context</label>
+                    <input type="email" id="input-auth-email" placeholder="hr@outdeedcompany.lk" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 text-gray-900 font-semibold shadow-2xs">
+                </div>
+                <div>
+                    <div class="flex justify-between items-center mb-1">
+                        <label class="block text-xs font-extrabold uppercase text-gray-500 tracking-wide">Security Phrase Password</label>
+                        <button id="trigger-forgot-routing" class="text-xs font-bold text-blue-600 hover:underline cursor-pointer">Forgot Password?</button>
+                    </div>
+                    <input type="password" id="input-auth-password" placeholder="••••••••" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 text-gray-900 font-semibold shadow-2xs">
+                </div>
+                <button id="action-execute-auth" class="w-full bg-blue-600 text-white font-bold py-3.5 rounded-xl hover:bg-blue-700 transition shadow-md mt-2 cursor-pointer">Authenticate Credentials</button>
+            </div>
+
+            <!-- MODULE ARCHITECTURE VIEW 2: RECOVERY AND ACCOUNT PARAMETER DISPATCH -->
+            <div id="view-auth-forgot-recovery" class="hidden space-y-4">
+                <h3 class="text-xl font-black text-gray-900">Account Password Rectification</h3>
+                <p class="text-sm text-gray-500 leading-relaxed">Input your identity parameter string mapping email vector. Outdeed internal routing hooks will emit an operational validation link token to reset parameters.</p>
+                <div>
+                    <label class="block text-xs font-extrabold uppercase text-gray-500 mb-1 tracking-wide">Target Email Destination</label>
+                    <input type="email" id="input-recovery-email" placeholder="applicant@outdeed.lk" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 text-gray-900 font-semibold">
+                </div>
+                <button id="action-execute-recovery" class="w-full bg-blue-600 text-white font-bold py-3.5 rounded-xl hover:bg-blue-700 transition shadow-md cursor-pointer">Send Reset Trigger Token</button>
+                <button id="routing-recovery-back" class="w-full text-center text-sm font-bold text-gray-400 hover:text-gray-600 transition pt-2 block cursor-pointer">Return to Standard Credentials</button>
+            </div>
+
+            <!-- MODULE ARCHITECTURE VIEW 3: SYSTEM WHATSAPP TWO-FACTOR OPT MODEL -->
+            <div id="view-auth-whatsapp-2fa" class="hidden space-y-4">
+                <p class="text-sm text-gray-500 leading-relaxed">Enter an operational local mobile telephone network parameter node string to request a simulated 6-digit transaction token signature code frame.</p>
+                <div>
+                    <label class="block text-xs font-extrabold uppercase text-gray-500 mb-1 tracking-wide">WhatsApp Mobile Vector String</label>
+                    <div class="flex shadow-2xs rounded-xl overflow-hidden">
+                        <span class="inline-flex items-center px-4 border border-r-0 border-gray-200 bg-gray-50 text-gray-500 text-sm font-black">+94</span>
+                        <input type="tel" id="input-whatsapp-phone" placeholder="771234567" class="w-full px-4 py-3 border border-gray-200 focus:outline-none focus:border-blue-500 text-gray-900 font-bold tracking-wider">
+                    </div>
+                </div>
+                <button id="action-send-whatsapp-otp" class="w-full bg-emerald-600 text-white font-bold py-3.5 rounded-xl hover:bg-emerald-700 transition shadow-md cursor-pointer">Request OTP Security Payload</button>
+                
+                <!-- PROGRAMMATICALLY DISPATCHED VALIDATION INTERACTION ELEMENT TARGET -->
+                <div id="wrapper-otp-verification-engine" class="hidden pt-6 border-t border-gray-100 mt-4 space-y-4">
+                    <div class="bg-amber-50 border border-amber-200 p-3.5 rounded-xl text-xs text-amber-800 font-medium">Gateway Stream Simulator Connected. Intercept verification string payload parameter layer.</div>
+                    <div>
+                        <label class="block text-xs font-extrabold uppercase text-gray-500 mb-1 tracking-wide">Enter 6-Digit WhatsApp OTP Token</label>
+                        <input type="text" id="input-otp-handshake-code" placeholder="000000" maxlength="6" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 text-center text-2xl font-black tracking-widest text-gray-900">
+                    </div>
+                    <button id="action-verify-otp-handshake" class="w-full bg-blue-600 text-white font-bold py-3.5 rounded-xl hover:bg-blue-700 transition shadow-md cursor-pointer">Complete Session Handshake</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ENTERPRISE CORE PRODUCTION VACANCY POSTING OVERLAY INTERACTIVE FRAME -->
+    <div id="vacancy-creation-modal" class="hidden fixed inset-0 bg-black/60 items-center justify-center p-4 z-50 backdrop-blur-xs">
+        <div class="bg-white w-full max-w-lg rounded-2xl p-8 shadow-2xl relative border border-gray-100 max-h-[92vh] overflow-y-auto custom-scrollbar">
+            <button id="close-vacancy-modal" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-2xl font-bold cursor-pointer">&times;</button>
+            
+            <h2 class="text-2xl font-black text-gray-900 tracking-tight">Deploy New Platform Opportunity</h2>
+            <p class="text-sm text-gray-500 mt-1 mb-6">Inject a validation data profile element block to register corporate vacancy parameters directly inside the core lookup stream tables.</p>
+            
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-xs font-extrabold uppercase text-gray-500 mb-1 tracking-wide">Job Position Title Designation</label>
+                    <input type="text" id="form-job-title" placeholder="e.g. Lead Senior Cloud Infrastructure Solutions Engineer" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 text-gray-900 font-semibold shadow-2xs">
+                </div>
+                <div>
+                    <label class="block text-xs font-extrabold uppercase text-gray-500 mb-1 tracking-wide">Corporate Corporate Organization Entity</label>
+                    <input type="text" id="form-job-company" placeholder="e.g. MillenniumIT ESP Private Limited" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 text-gray-900 font-semibold shadow-2xs">
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-extrabold uppercase text-gray-500 mb-1 tracking-wide">District Parameter Node</label>
+                        <select id="form-job-location" class="w-full border border-gray-200 rounded-xl p-3 focus:outline-none focus:border-blue-500 text-gray-900 font-bold cursor-pointer shadow-2xs bg-white">
+                            <option value="colombo">Colombo District</option>
+                            <option value="gampaha">Gampaha District</option>
+                            <option value="kandy">Kandy District</option>
+                            <option value="galle">Galle District</option>
+                            <option value="kurunegala">Kurunegala District</option>
+                            <option value="jaffna">Jaffna District</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-extrabold uppercase text-gray-500 mb-1 tracking-wide">Classification Tag</label>
+                        <select id="form-job-classification" class="w-full border border-gray-200 rounded-xl p-3 focus:outline-none focus:border-blue-500 text-gray-900 font-bold cursor-pointer shadow-2xs bg-white">
+                            <option value="full-time">Full-Time Structure</option>
+                            <option value="part-time">Part-Time Allocation</option>
+                            <option value="remote">Fully Remote / WFH</option>
+                            <option value="contract">Fixed-Term Contract</option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs font-extrabold uppercase text-gray-500 mb-1 tracking-wide">Monthly Base Remuneration (LKR Value String Only)</label>
+                    <input type="number" id="form-job-salary" placeholder="e.g. 175000" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 text-gray-900 font-bold shadow-2xs">
+                </div>
+                <div>
+                    <label class="block text-xs font-extrabold uppercase text-gray-500 mb-1 tracking-wide">Role Specifications Summary</label>
+                    <textarea id="form-job-desc" rows="3" placeholder="Define expected programmatic infrastructure capabilities, technological stack experience criteria..." class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 text-gray-900 font-semibold shadow-2xs custom-scrollbar"></textarea>
+                </div>
+                
+                <button id="action-execute-vacancy-publish" class="w-full bg-blue-600 text-white font-bold py-4 rounded-xl hover:bg-blue-700 transition shadow-md mt-2 cursor-pointer">Broadcast Vacancy Parameters</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- PROGRAMMATIC RUNTIME ARCHITECTURE CONTROLLER MODULE ENGINE (JAVASCRIPT) -->
+    <!-- ========================================================================= -->
+    <script type="module">
+        // Import essential interface signatures directly from your specific Firebase 12.13.0 framework CDN
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-analytics.js";
+        import { getAuth, signInWithEmailAndPassword, sendPasswordResetEmail, signInWithPopup, GoogleAuthProvider, OAuthProvider } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-auth.js";
+        import { getFirestore } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-firestore.js";
+
+        // Integrated YOUR Web App's Firebase Configuration Credentials Map Block
+        const firebaseConfig = {
+            apiKey: "AIzaSyDmWyEQI5V1mVq4sV0c3ap08TwLQOqAcuc",
+            authDomain: "ms-shops-5db4c.firebaseapp.com",
+            projectId: "ms-shops-5db4c",
+            storageBucket: "ms-shops-5db4c.firebasestorage.app",
+            messagingSenderId: "981166534138",
+            appId: "1:981166534138:web:9fefe68b8088fd1ab54843",
+            measurementId: "G-4VFJ1BK5V1"
+        };
+
+        // Initialize Native Instances Context Execution Hooks
+        const firebaseAppInstance = initializeApp(firebaseConfig);
+        const analyticsInstance = getAnalytics(firebaseAppInstance);
+        const securityAuthCore = getAuth(firebaseAppInstance);
+        const cloudFirestoreDatabase = getFirestore(firebaseAppInstance);
+
+        // Core Application Data Repository Memory State Structure
+        const applicationGlobalJobStateArray = [
+            { id: "outdeed_node_01", title: "Senior Enterprise Cloud Software Engineer", company: "Axiata Digital Labs Solutions", location: "colombo", type: "full-time", salaryNum: 260000, salary: "LKR 260,000 - 310,000", posted: "14 minutes ago" },
+            { id: "outdeed_node_02", title: "Graphic Interface Designer Consultant", company: "Mitra Innovation International", location: "gampaha", type: "remote", salaryNum: 145000, salary: "LKR 145,000 Fixed Base", posted: "2 hours ago" },
+            { id: "outdeed_node_03", title: "Supply Chain Operations Delivery Manager", company: "PickMe Logistics Operations Corp", location: "colombo", type: "full-time", salaryNum: 95000, salary: "LKR 95,000 + Incentive Metrics", posted: "1 day ago" },
+            { id: "outdeed_node_04", title: "Associate Accounts Assurance Audit Executive", company: "John Keells Holdings Management PLC", location: "galle", type: "part-time", salaryNum: 65000, salary: "LKR 65,000 Hourly Scale", posted: "3 days ago" },
+            { id: "outdeed_node_05", title: "Technical Customer Engagement Specialist", company: "Dialog Axiata Telecommunications PLC", location: "kandy", type: "full-time", salaryNum: 55000, salary: "LKR 55,000 Base Salary", posted: "5 days ago" }
+        ];
+
+        // Document Object Model DOM Navigation Handle Mapping Index Matrix Variables
+        const domTargetFeedListContainer = document.getElementById('job-feed-container');
+        const domTargetCounterString = document.getElementById('job-counter-string');
+        const domActionSearchTrigger = document.getElementById('search-btn');
+        const domFilterSalaryDropdown = document.getElementById('filter-salary');
+
+        const domModalAuthWrapper = document.getElementById('identity-auth-modal');
+        const domModalVacancyWrapper = document.getElementById('vacancy-creation-modal');
+
+        const domNavTriggerAuthOpen = document.getElementById('nav-login-btn');
+        const domNavTriggerVacancyOpen = document.getElementById('nav-post-btn');
+        const domCloseAuthModalBtn = document.getElementById('close-identity-modal');
+        const domCloseVacancyModalBtn = document.getElementById('close-vacancy-modal');
+
+        const domTabAuthCredentials = document.getElementById('auth-tab-creds');
+        const domTabAuthWhatsapp2FA = document.getElementById('auth-tab-whatsapp');
+
+        const domPanelAuthCredentialsView = document.getElementById('view-auth-credentials');
+        const domPanelAuthWhatsapp2FAView = document.getElementById('view-auth-whatsapp-2fa');
+        const domPanelAuthForgotRecoveryView = document.getElementById('view-auth-forgot-recovery');
+
+        const domActionLinkToForgotFlow = document.getElementById('trigger-forgot-routing');
+        const domActionLinkBackToLoginFlow = document.getElementById('routing-recovery-back');
+
+        const domActionExecuteFederatedGoogle = document.getElementById('btn-fed-google');
+        const domActionExecuteFederatedApple = document.getElementById('btn-fed-apple');
+        const domActionExecuteNativeAuthForm = document.getElementById('action-execute-auth');
+        const domActionExecuteForgotRecoveryForm = document.getElementById('action-execute-recovery');
+
+        const domActionDispatchWhatsappOTPToken = document.getElementById('action-send-whatsapp-otp');
+        const domWrapperOtpVerificationPanel = document.getElementById('wrapper-otp-verification-engine');
+        const domActionVerifyOtpCryptographicToken = document.getElementById('action-verify-otp-handshake');
+        const domActionExecuteVacancyPublishForm = document.getElementById('action-execute-vacancy-publish');
+
+        // ==========================================
+        // DYNAMIC CONTENT RENDERING ENGINE PIPELINE
+        // ==========================================
+        function executeRenderPipelineDisplay(targetDataPayloadStreamArray) {
+            if(!domTargetFeedListContainer) return;
+            domTargetFeedListContainer.innerHTML = "";
+            
+            if(domTargetCounterString) {
+                domTargetCounterString.innerText = `Showing ${targetDataPayloadStreamArray.length} active platform vacancies found`;
+            }
+
+            if(targetDataPayloadStreamArray.length === 0) {
+                domTargetFeedListContainer.innerHTML = `
+                    <div class="p-12 text-center bg-white rounded-2xl border border-gray-200 shadow-3xs">
+                        <div class="text-4xl mb-3">📂</div>
+                        <h4 class="text-lg font-bold text-gray-900 mb-1">No Active Match Matrix Configurations Found</h4>
+                        <p class="text-gray-500 text-sm max-w-sm mx-auto">We couldn't track down openings aligning with those filter parameters inside the Sri Lankan geography layout space.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            targetDataPayloadStreamArray.forEach(jobDataElement => {
+                let badgeThemeStyleClassesString = "bg-blue-50 text-blue-800 border-blue-100";
+                if(jobDataElement.type === "part-time") badgeThemeStyleClassesString = "bg-orange-50 text-orange-800 border-orange-100";
+                if(jobDataElement.type === "remote") badgeThemeStyleClassesString = "bg-purple-50 text-purple-800 border-purple-100";
+                if(jobDataElement.type === "contract") badgeThemeStyleClassesString = "bg-zinc-50 text-zinc-800 border-zinc-100";
+
+                const generatedCardHtmlNodeTemplateLiteral = `
+                    <div class="bg-white p-6 rounded-2xl border border-gray-200 shadow-3xs hover:shadow-md hover:-translate-y-0.5 transition duration-200 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 relative overflow-hidden group">
+                        <div class="space-y-1 flex-1">
+                            <div class="flex items-center gap-3 flex-wrap">
+                                <h3 class="text-lg font-black text-gray-900 tracking-tight group-hover:text-blue-600 transition">${jobDataElement.title}</h3>
+                                <span class="px-2.5 py-0.5 rounded-full text-xs font-bold uppercase tracking-wide border ${badgeThemeStyleClassesString}">${jobDataElement.type}</span>
+                            </div>
+                            <p class="text-gray-600 text-sm font-semibold">${jobDataElement.company}</p>
+                            <div class="flex flex-wrap gap-4 pt-2 text-xs font-bold text-gray-400">
+                                <span class="flex items-center gap-1">📍 <span class="text-gray-600 uppercase">${jobDataElement.location} DISTRICT</span></span>
+                                <span class="flex items-center gap-1">💵 <span class="text-gray-600">${jobDataElement.salary}</span></span>
+                                <span class="flex items-center gap-1">⏱️ <span class="text-gray-500">${jobDataElement.posted}</span></span>
+                            </div>
+                        </div>
+                        <div class="w-full sm:w-auto border-t sm:border-none pt-4 sm:pt-0 border-gray-100 flex items-center justify-between sm:justify-end">
+                            <button class="w-full sm:w-auto bg-blue-50 hover:bg-blue-600 text-blue-600 hover:text-white text-sm font-bold px-5 py-2.5 rounded-xl transition dynamic-application-hook cursor-pointer" data-job-id="${jobDataElement.id}">Apply Now</button>
+                        </div>
+                    </div>
+                `;
+                domTargetFeedListContainer.insertAdjacentHTML('beforeend', generatedCardHtmlNodeTemplateLiteral);
+            });
+
+            bindPlatformApplicationInteractions();
+        }
+
+        function bindPlatformApplicationInteractions() {
+            document.querySelectorAll('.dynamic-application-hook').forEach(buttonElement => {
+                buttonElement.addEventListener('click', (eventObject) => {
+                    const targetId = eventObject.currentTarget.getAttribute('data-job-id');
+                    const matchObj = applicationGlobalJobStateArray.find(j => j.id === targetId);
+                    if(matchObj) {
+                        alert(`Outdeed Application Stream Triggered!\\n\\nPosition: ${matchObj.title}\\nEntity: ${matchObj.company}\\n\\nYour standardized profile parameters will be dispatched to the corporate employer interface dashboard.`);
+                    }
+                });
+            });
+        }
+
+        // ==========================================
+        // ADVANCED MULTI-AXIS SEARCH ROUTING STRATEGY
+        // ==========================================
+        function executeSearchQueryEvaluationPipeline() {
+            const rawSearchTermKeywordValueString = document.getElementById('search-title').value.toLowerCase().trim();
+            const selectedLocationDistrictScopeValueString = document.getElementById('search-location').value;
+            const chosenMinimumCompensationFloorNumericThreshold = parseInt(domFilterSalaryDropdown.value) || 0;
+            
+            const activeCheckboxJobTypeTargetsCollectionArray = Array.from(document.querySelectorAll('input[name="job-type"]:checked')).map(checkboxNode => checkboxNode.value);
+
+            const resolutionFilteredDatasetPayloadArray = applicationGlobalJobStateArray.filter(jobInstanceNode => {
+                const criteriaMatchKeywords = jobInstanceNode.title.toLowerCase().includes(rawSearchTermKeywordValueString) || jobInstanceNode.company.toLowerCase().includes(rawSearchTermKeywordValueString);
+                const criteriaMatchLocation = selectedLocationDistrictScopeValueString === "" || jobInstanceNode.location === selectedLocationDistrictScopeValueString;
+                const criteriaMatchClassification = activeCheckboxJobTypeTargetsCollectionArray.length === 0 || activeCheckboxJobTypeTargetsCollectionArray.includes(jobInstanceNode.type);
+                
+                const targetJobSalaryEvaluationMagnitude = jobInstanceNode.salaryNum || 0;
+                const criteriaMatchCompensationRange = targetJobSalaryEvaluationMagnitude >= chosenMinimumCompensationFloorNumericThreshold;
+
+                return criteriaMatchKeywords && criteriaMatchLocation && criteriaMatchClassification && criteriaMatchCompensationRange;
+            });
+
+            executeRenderPipelineDisplay(resolutionFilteredDatasetPayloadArray);
+        }
+
+        if(domActionSearchTrigger) domActionSearchTrigger.addEventListener('click', executeSearchQueryEvaluationPipeline);
+        if(domFilterSalaryDropdown) domFilterSalaryDropdown.addEventListener('change', executeSearchQueryEvaluationPipeline);
+        document.querySelectorAll('input[name="job-type"]').forEach(element => element.addEventListener('change', executeSearchQueryEvaluationPipeline));
+
+        // ==========================================
+        // DYNAMIC VIEW OVERLAY MODAL TOGGLES
+        // ==========================================
+        if(domNavTriggerAuthOpen) domNavTriggerAuthOpen.addEventListener('click', () => domModalAuthWrapper.classList.add('modal-active'));
+        if(domNavTriggerVacancyOpen) domNavTriggerVacancyOpen.addEventListener('click', () => domModalVacancyWrapper.classList.add('modal-active'));
+        
+        if(domCloseAuthModalBtn) domCloseAuthModalBtn.addEventListener('click', () => domModalAuthWrapper.classList.remove('modal-active'));
+        if(domCloseVacancyModalBtn) domCloseVacancyModalBtn.addEventListener('click', () => domModalVacancyWrapper.classList.remove('modal-active'));
+
+        window.addEventListener('click', (event) => {
+            if (event.target === domModalAuthWrapper) domModalAuthWrapper.classList.remove('modal-active');
+            if (event.target === domModalVacancyWrapper) domModalVacancyWrapper.classList.remove('modal-active');
+        });
+
+        if(domTabAuthCredentials) {
+            domTabAuthCredentials.addEventListener('click', () => {
+                domTabAuthCredentials.className = "flex-1 pb-3 text-center text-blue-600 border-b-2 border-blue-600 cursor-pointer";
+                domTabAuthWhitespace2FA.className = "flex-1 pb-3 text-center text-gray-400 hover:text-gray-600 cursor-pointer";
+                domPanelAuthCredentialsView.classList.remove('hidden');
+                domPanelAuthWhitespace2FAView.classList.add('hidden');
+                domPanelAuthForgotRecoveryView.classList.add('hidden');
+            });
+        }
+
+        if(domTabAuthWhitespace2FA) {
+            domTabAuthWhitespace2FA.addEventListener('click', () => {
+                domTabAuthWhitespace2FA.className = "flex-1 pb-3 text-center text-blue-600 border-b-2 border-blue-600 cursor-pointer";
+                domTabAuthCredentials.className = "flex-1 pb-3 text-center text-gray-400 hover:text-gray-600 cursor-pointer";
+                domPanelAuthWhitespace2FAView.classList.remove('hidden');
+                domPanelAuthCredentialsView.classList.add('hidden');
+                domPanelAuthForgotRecoveryView.classList.add('hidden');
+            });
+        }
+
+        if(domActionLinkToForgotFlow) {
+            domActionLinkToForgotFlow.addEventListener('click', () => {
+                domPanelAuthCredentialsView.classList.add('hidden');
+                domPanelAuthForgotRecoveryView.classList.remove('hidden');
+                document.getElementById('input-recovery-email').value = document.getElementById('input-auth-email').value;
+            });
+        }
+
+        if(domActionLinkBackToLoginFlow) {
+            domActionLinkBackToLoginFlow.addEventListener('click', () => {
+                domPanelAuthForgotRecoveryView.classList.add('hidden');
+                domPanelAuthCredentialsView.classList.remove('hidden');
+            });
+        }
+
+        // =========================================================
+        // ACCOUNT SECURITY HANDSHAKE PROVIDERS INTEGRATION IMPLEMENTATION
+        // =========================================================
+        if(domActionExecuteFederatedGoogle) {
+            domActionExecuteFederatedGoogle.addEventListener('click', () => {
+                const googleProviderInstance = new GoogleAuthProvider();
+                signInWithPopup(securityAuthCore, googleProviderInstance)
+                    .then((authExecutionResultPayload) => {
+                        alert(`Google Access Handshake Authorized Successfully!\\n\\nIdentity: ${authExecutionResultPayload.user.displayName}`);
+                        domModalAuthWrapper.classList.remove('modal-active');
+                    })
+                    .catch((executionFaultObject) => {
+                        alert(`Federation Routing Exception: ${executionFaultObject.message}`);
+                    });
+            });
+        }
+
+        if(domActionExecuteFederatedApple) {
+            domActionExecuteFederatedApple.addEventListener('click', () => {
+                const appleProviderInstance = new OAuthProvider('apple.com');
+                signInWithPopup(securityAuthCore, appleProviderInstance)
+                    .then((authExecutionResultPayload) => {
+                        alert(`Apple Secure Device ID Handshake Synced!`);
+                        domModalAuthWrapper.classList.remove('modal-active');
+                    })
+                    .catch((executionFaultObject) => {
+                        alert(`Apple Key Exchange Exception Error: ${executionFaultObject.message}`);
+                    });
+            });
+        }
+
+        if(domActionExecuteNativeAuthForm) {
+            domActionExecuteNativeAuthForm.addEventListener('click', () => {
+                const rawUserEmailInputString = document.getElementById('input-auth-email').value.trim();
+                const rawUserPasswordInputString = document.getElementById('input-auth-password').value;
+
+                if(!rawUserEmailInputString || !rawUserPasswordInputString) {
+                    alert("Authentication Constraint Error: Fields cannot be left undefined.");
+                    return;
+                }
+
+                signInWithEmailAndPassword(securityAuthCore, rawUserEmailInputString, rawUserPasswordInputString)
+                    .then((successfulAuthResponseObject) => {
+                        alert(`Session Handshake Established Securely: ${successfulAuthResponseObject.user.email}`);
+                        domModalAuthWrapper.classList.remove('modal-active');
+                    })
+                    .catch((identityHandshakeFaultObject) => {
+                        alert(`Security Authentication Handshake Refused. Shifting to Recovery Layout Panel.`);
+                        domPanelAuthCredentialsView.classList.add('hidden');
+                        domPanelAuthForgotRecoveryView.classList.remove('hidden');
+                        document.getElementById('input-recovery-email').value = rawUserEmailInputString;
+                    });
+            });
+        }
+
+        if(domActionExecuteForgotRecoveryForm) {
+            domActionExecuteForgotRecoveryForm.addEventListener('click', () => {
+                const targetRecoveryDestinationEmailAddressString = document.getElementById('input-recovery-email').value.trim();
+                if(!targetRecoveryDestinationEmailAddressString) {
+                    alert("Validation Error: Please declare target recovery path vector.");
+                    return;
+                }
+
+                sendPasswordResetEmail(securityAuthCore, targetRecoveryDestinationEmailAddressString)
+                    .then(() => {
+                        alert(`Outdeed Security Token Dispatched to: ${targetRecoveryDestinationEmailAddressString}`);
+                        domPanelAuthForgotRecoveryView.classList.add('hidden');
+                        domPanelAuthCredentialsView.classList.remove('hidden');
+                    })
+                    .catch((recoveryFaultObject) => {
+                        alert(`Recovery Core Parameter Transmission Refused: ${recoveryFaultObject.message}`);
+                    });
+            });
+        }
+
+        // =========================================================
+        // MOBILE WHATSAPP ADVANCED 2FA OTP VALIDATION CONTROLLER
+        // =========================================================
+        if(domActionDispatchWhatsappOTPToken) {
+            domActionDispatchWhatsappOTPToken.addEventListener('click', () => {
+                const targetUserMobileStringNodeValue = document.getElementById('input-whatsapp-phone').value.trim();
+                if(targetUserMobileStringNodeValue.length < 9) {
+                    alert("Input Constraint Error: Supply a valid Sri Lankan mobile sequence.");
+                    return;
+                }
+
+                alert(`Outdeed Communication Gateway Connected! Sending 6-Digit authorization token to +94 ${targetUserMobileStringNodeValue}`);
+                if(domWrapperOtpVerificationPanel) domWrapperOtpVerificationPanel.classList.remove('hidden');
+            });
+        }
+
+        if(domActionVerifyOtpCryptographicToken) {
+            domActionVerifyOtpCryptographicToken.addEventListener('click', () => {
+                const rawInsertedOtpVerificationCodeString = document.getElementById('input-otp-handshake-code').value.trim();
+                if(rawInsertedOtpVerificationCodeString.length !== 6) {
+                    alert("Verification Parameter Constraint Error: Token values must match an exact 6-digit formatting footprint.");
+                    return;
+                }
+
+                alert("Cryptographic Two-Factor Handshake Completed via WhatsApp Runtime Layer!");
+                domModalAuthWrapper.classList.remove('modal-active');
+            });
+        }
+
+        // =========================================================
+        // REAL-TIME COMPENDIUM EMPLOYER JOB POSTING IMPLEMENTATION
+        // =========================================================
+        if(domActionExecuteVacancyPublishForm) {
+            domActionExecuteVacancyPublishForm.addEventListener('click', () => {
+                const valueVacancyPositionTitle = document.getElementById('form-job-title').value.trim();
+                const valueVacancyCompanyEntity = document.getElementById('form-job-company').value.trim();
+                const valueVacancyDistrictNode = document.getElementById('form-job-location').value;
+                const valueVacancyClassification = document.getElementById('form-job-classification').value;
+                const valueVacancySalaryNumericFloor = parseInt(document.getElementById('form-job-salary').value) || 0;
+                const valueVacancyDescriptionBody = document.getElementById('form-job-desc').value.trim();
+
+                if(!valueVacancyPositionTitle || !valueVacancyCompanyEntity || !valueVacancySalaryNumericFloor) {
+                    alert("Deployment Refused: Mandatory parameter criteria bounds must be instantiated.");
+                    return;
+                }
+
+                const instantiationGeneratedJobSchemaNode = {
+                    id: "outdeed_node_" + (applicationGlobalJobStateArray.length + 1),
+                    title: valueVacancyPositionTitle,
+                    company: valueVacancyCompanyEntity,
+                    location: valueVacancyDistrictNode,
+                    type: valueVacancyClassification,
+                    salaryNum: valueVacancySalaryNumericFloor,
+                    salary: "LKR " + valueVacancySalaryNumericFloor.toLocaleString() + " Monthly Scale",
+                    posted: "Just now"
+                };
+
+                applicationGlobalJobStateArray.unshift(instantiationGeneratedJobSchemaNode);
+                executeRenderPipelineDisplay(applicationGlobalJobStateArray);
+                
+                alert(`Broadcast Transaction Success! Vacancy "${valueVacancyPositionTitle}" is now live.`);
+                
+                document.getElementById('form-job-title').value = "";
+                document.getElementById('form-job-company').value = "";
+                document.getElementById('form-job-salary').value = "";
+                document.getElementById('form-job-desc').value = "";
+                
+                domModalVacancyWrapper.classList.remove('modal-active');
+            });
+        }
+
+        // Execution anchor instance hook
+        document.addEventListener('DOMContentLoaded', () => {
+            executeRenderPipelineDisplay(applicationGlobalJobStateArray);
+            
+            const alternativeWhatsAppRegistrationTriggerButton = document.getElementById('activate-whatsapp-trigger');
+            if(alternativeWhatsAppRegistrationTriggerButton) {
+                alternativeWhatsAppRegistrationTriggerButton.addEventListener('click', () => {
+                    if(domModalAuthWrapper) {
+                        domModalAuthWrapper.classList.add('modal-active');
+                        if(domTabAuthWhatsapp2FA) domTabAuthWhatsapp2FA.click();
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
